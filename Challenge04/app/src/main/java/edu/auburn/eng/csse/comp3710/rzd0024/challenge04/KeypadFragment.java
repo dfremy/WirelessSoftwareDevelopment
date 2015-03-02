@@ -17,27 +17,27 @@ public class KeypadFragment extends Fragment {
     private Button num4_button,num5_button,num6_button;
     private Button num7_button,num8_button,num9_button;
     private Button num0_button, c_button, num42_button;
-    private Activity activity;
+    private Activity parent;
 
     Button.OnClickListener listen0to9 = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
             Button button = (Button) v;
-            ((OnKeySelected) activity).on0to9Clicked(button.getText().toString());
+            ((OnKeySelected) parent).on0to9Clicked(button.getText().toString());
         }
     };
 
     Button.OnClickListener listen42 = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
-            ((OnKeySelected) activity).on42Clicked();
+            ((OnKeySelected) parent).on42Clicked();
         }
     };
 
     Button.OnClickListener listenc = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
-            ((OnKeySelected) activity).onClearClicked();
+            ((OnKeySelected) parent).onClearClicked();
         }
     };
 
@@ -78,7 +78,7 @@ public class KeypadFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.activity = activity;
+        parent = activity;
     }
 
     public interface OnKeySelected {

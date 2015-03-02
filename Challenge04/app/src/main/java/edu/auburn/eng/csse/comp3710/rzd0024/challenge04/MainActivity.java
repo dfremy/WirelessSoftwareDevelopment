@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends FragmentActivity implements KeypadFragment.OnKeySelected{
+public class MainActivity extends FragmentActivity implements KeypadFragment.OnKeySelected {
 
     private final String RESULT_KEY = "result";
     private final String KEYPAD_KEY = "keypad";
@@ -76,7 +76,7 @@ public class MainActivity extends FragmentActivity implements KeypadFragment.OnK
 
     @Override
     public void onClearClicked() {
-        resultFragment.setText("");
+        resultFragment.clear();
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
@@ -101,17 +101,12 @@ public class MainActivity extends FragmentActivity implements KeypadFragment.OnK
     }
 
     @Override
-    public void on0to9Clicked(String value) {
-        String s = resultFragment.getText() + value;
-        if(s.length() <= 10)
-            resultFragment.setText(String.valueOf(s));
+    public void on0to9Clicked(String text) {
+        resultFragment.concatenateValue(Long.parseLong(text));
     }
 
     @Override
     public void on42Clicked() {
-        Long value = Long.parseLong("0" + resultFragment.getText()) + 42;
-        String s = value.toString();
-        if(s.length() <= 10)
-            resultFragment.setText(String.valueOf(s));
+        resultFragment.sumValue(42L);
     }
 }

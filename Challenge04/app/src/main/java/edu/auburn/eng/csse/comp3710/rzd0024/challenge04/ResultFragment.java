@@ -12,16 +12,26 @@ import android.widget.EditText;
  */
 public class ResultFragment extends Fragment {
 
-    private final String RESULT_TEXT_KEY = "result_text";
+    private final String RESULT_TEXT_KEY = "result text";
 
     private EditText resultEditText;
 
-    public void setText(String text) {
-        resultEditText.setText(text);
+    public void clear() {
+        resultEditText.setText("");
     }
 
-    public String getText() {
-        return resultEditText.getText().toString();
+    public void concatenateValue(Long value) {
+        Long result = Long.parseLong("0" + resultEditText.getText())*10 + value;
+        String s = result.toString();
+        if(s.length() <= 10)
+            resultEditText.setText(String.valueOf(s));
+    }
+
+    public void sumValue(Long value) {
+        Long result = Long.parseLong("0" + resultEditText.getText()) + 42;
+        String s = result.toString();
+        if(s.length() <= 10)
+            resultEditText.setText(String.valueOf(s));
     }
 
     @Override
@@ -32,6 +42,8 @@ public class ResultFragment extends Fragment {
 
         if (savedInstanceState != null)
             resultEditText.setText(savedInstanceState.getString(RESULT_TEXT_KEY));
+
+        resultEditText.setInputType(0);
 
         return root;
     }
