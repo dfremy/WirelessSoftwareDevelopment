@@ -1,0 +1,51 @@
+@startuml
+
+class Player {
+    int playerID
+    int score
+}
+
+class SimonScreen {
+    Player player
+    Sequence sequence
+    Buttons[] buttons
+}
+
+class Database {
+}
+
+class Sequence {
+    ArrayList<Button> sequence
+}
+
+class Button {
+    Color color
+    Sound tone
+    int size
+}
+note right: The tone gets its value using the color value
+
+enum Color {
+     BLUE
+     RED
+     YELLOW
+     GREEN
+ }
+
+Player - SimonScreen: View
+Player - Button: Push
+
+SimonScreen "1" *-- "4" Button
+SimonScreen "1" *-- "1" Sequence
+
+Player "1" *-- "1" Sequence
+Player -- Database: Publish score
+
+Button <--* Color
+
+Sequence "1" *-- "many" Button
+
+hide empty members
+hide methods
+
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+
+Player -> Simon: Start Game
+loop while ! end of game
+Simon -> User: Show Sequence
+Player -> Simon: Select Sequence
+end
+User -> Database: Send Score
+
+@enduml

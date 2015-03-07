@@ -1,0 +1,120 @@
+@startsalt
+{
+{T
++ Play
+++  Goal
++++ Repeat the showed sequence
+++ Entry conditions
++++ The player starts the game
+++ Scenario
++++ The sequence is shown
++++ The player repeat the sequence
++++ When a button is pushed:
+++++ its light blinks
+++++ its tone plays
++++ The game ends when the player's sequence
+++++ doesn't match the one shown
+++ Exceptions
++++ The game is suspended upon receipt of a phone call
++++ The game is terminated before it concludes
+++ Exit conditions
++++ Successful Exit Conditions
+++++ The game is completed
+++++ The score is available
++++ Failure Exit Conditions
+++++ No score is available
+}
+---
+{T
++ See the sequence
+++  Goal
++++ See the sequence with one more button than last time
+++ Entry conditions
++++ Player started the game
++++ Player got the last sequence right
+++ Scenario
++++ The new sequence is shown to the player
+++ Exceptions
++++ None
+++ Exit conditions
++++ Successful Exit Conditions
+++++ The sequence is shown correctly.
++++ Failure Exit Conditions
+++++ None
+}
+---
+{T
++ Repeat Sequence
+++  Goal
++++ To repeat the sequence shown
+++ Entry conditions
++++ Sequence has been shown
+++ Scenario
++++ The player has to repeat the sequence that was displayed
+++ Exceptions
++++ None
+++ Exit conditions
++++ Successful Exit Conditions
+++++ The player gets the entire sequence correctly
+++++ The player pushes a different button than expected
++++ Failure Exit Conditions
+++++ None
+}
+---
+{T
++ Choose Button
+++  Goal
++++ Push the correct button
+++ Entry conditions
++++ Sequence is being chosen
+++ Scenario
++++ The player is trying to guess what is the button he has to push
+++ Exceptions
++++ None
+++ Exit conditions
++++ Successful Exit Conditions
+++++ The player pushes the correct button
+++++ The player pushes a different button than expected
++++ Failure Exit Conditions
+++++ None
+}
+---
+{T
++ View Score
+++  Goal
++++ to indicate how long was the biggest sequence the player repeated correctly so far
+++ Entry conditions
++++ The player started the game
++++ The player gets the sequence shown correctly
+++ Scenario
++++ The size of the sequence shown is displayed in the screen
++++ Initially, the sequence size is one
+++ Exceptions
++++ None
+++ Exit conditions
++++ Successful Exit Conditions
+++++ The score is updated to reflect that the player repeated the sequence correctly
++++ Failure Exit Conditions
+++++ None
+}
+---
+{T
++ Publish Score
+++  Goal
++++ To send the player's score to a database of scores.
+++ Entry conditions
++++ The player failed to repeat the last sequence
+++ Scenario
++++ The score is sent to the database
+++ Exceptions
++++ Communication with the database is not possible
+++ Exit conditions
++++ Successful Exit Conditions
+++++ The score is successfully sent to the database
++++ Failure Exit Conditions
+++++ No score is stored
+}
+
+}
+
+@endsalt

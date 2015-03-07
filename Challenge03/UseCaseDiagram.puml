@@ -1,0 +1,24 @@
+@startuml
+title Simon
+
+actor Player
+actor Database
+
+rectangle {
+(Play)
+(View Score)
+(Publish Highscore)
+(View Sequence One Time)
+(View Score)
+(Choose Sequence)
+}
+
+Player -- (Play)
+(Play) ..> (View Sequence One Time): <<includes>>
+(Play) ..> (Choose Sequence): <<includes>>
+
+Player -- (View Score)
+Player -- (Publish Highscore)
+Database -- (Publish Highscore)
+
+@enduml
