@@ -1,0 +1,51 @@
+@startuml
+
+class Haiku {
+    String[] phrases
+    int[] syllables
+}
+
+class HaikuCreator {
+    String HAIKU_HISTORY_TAG
+    Stack<Haiku> haikuHistory
+    Haiku haiku
+    TextView haikuTextView
+    Button deleteButton
+    Button addButton
+    Button startOverButton
+    Button displayButton
+    Activity activity
+    Words words
+    Spinner spinner
+    RadioGroup radioGroup
+    ArrayAdapter<String> adapter
+    ArrayList<Integer> possibleSyllables
+}
+
+class HaikuActivity {
+    ArrayList<Button> sequence
+}
+
+class HaikuPreview {
+    Color color
+    Sound tone
+    int size
+}
+
+class Words {
+    ArrayAdapter<CharSequence> nouns
+    ArrayAdapter<CharSequence> verbs
+    ArrayAdapter<CharSequence> adjectives
+    ArrayAdapter<CharSequence> other
+}
+
+HaikuCreator "1" *-- "many" Haiku
+HaikuCreator "1" *-- "1" Words
+HaikuActivity "1" *-- "1" HaikuCreator
+HaikuActivity "1" *-- "1" HaikuPreview
+
+
+hide empty members
+hide methods
+
+@enduml

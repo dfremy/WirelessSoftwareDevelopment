@@ -1,0 +1,43 @@
+@startuml
+
+actor User
+
+loop while user is not tired
+    opt select type of word
+       User --> Haiku: Select type of word
+       Haiku --> User: Shows spinner with words
+    end
+
+    alt if type of word selected
+
+        alt if haiku !empty
+            opt display
+               User --> Haiku: Display haiku
+               Haiku --> User: Shows the haiku
+            end
+
+            opt delete word
+                User --> Haiku: Delete word
+                Haiku --> User: Shows new preview of haiku
+            end
+        end
+
+        alt if haiku !completed
+            opt select word
+                User --> Haiku: Select word
+                Haiku --> User: Shows all words that can be selected
+            end
+            opt add word
+                User --> Haiku: Add word
+                Haiku --> User: Show new preview of haiku
+            end
+        end
+
+        opt start over
+            User --> Haiku: Start Over
+            Haiku --> User:
+        end
+    end
+end
+
+@enduml

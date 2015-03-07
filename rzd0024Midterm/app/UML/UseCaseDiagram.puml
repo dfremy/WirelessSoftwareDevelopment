@@ -1,0 +1,25 @@
+@startuml
+title Haiku Midterm
+
+actor User
+
+rectangle {
+    (Make a Haiku)
+    (Select type of word)
+    (Select word)
+    (Display Haiku)
+    (Start Over)
+    (Add Word)
+    (Delete Word)
+}
+
+User -- (Make a Haiku)
+User -- (Display Haiku)
+User -- (Start Over)
+(Make a Haiku) ..> (Add Word): <<includes>>
+(Make a Haiku) ..> (Delete Word): <<includes>>
+(Make a Haiku) ..> (Select type of word): <<includes>>
+(Make a Haiku) ..> (Select word): <<includes>>
+
+
+@enduml

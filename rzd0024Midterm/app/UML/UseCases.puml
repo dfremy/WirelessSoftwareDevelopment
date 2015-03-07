@@ -1,0 +1,68 @@
+@startsalt
+{
+{T
++ Make a Haiku
+++  Goal
++++ Construct a full haiku
+++ Entry conditions
++++ User initialize the app
+++ Scenario
++++ The creator of Haiku is shown
++++ The user selects the type of word
++++ When the type of word is selected:
+++++ the possible words that can be selected are shown
++++ The user selects a word
++++ When a word is selected:
+++++ the word is shows as ready to be add
++++ The user adds words
++++ When a word is added:
+++++ the word is placed in the next available spot
++++ The user deletes words
++++ When a word is deleted:
+++++ the last word added is deleted
+++ Exceptions
++++ None
+++ Exit conditions
++++ Successful Exit Conditions
+++++ The user closes the app
++++ Failure Exit Conditions
+++++ None
+}
+---
+{T
++ Display Haiku
+++  Goal
++++ Show to the user the haiku in its actual state
+++ Entry conditions
++++ Player selected the display option
+++ Scenario
++++ The haiku is shown to the user
+++ Exceptions
++++ None
+++ Exit conditions
++++ Successful Exit Conditions
+++++ The user pushes the back button
++++ Failure Exit Conditions
+++++ None
+}
+---
+{T
++ Start Over
+++  Goal
++++ Clean the screen so the player can start a new haiku from scratch
+++ Entry conditions
++++ User selects the start over option
+++ Scenario
++++ Everything on screen will come back to the initial state
+++ Exceptions
++++ None
+++ Exit conditions
++++ Successful Exit Conditions
+++++ The screen is clean and the user can start a new haiku
++++ Failure Exit Conditions
+++++ None
+}
+
+}
+
+@endsalt
