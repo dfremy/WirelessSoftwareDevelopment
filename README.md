@@ -4,4 +4,8 @@ Challenge01: Doing a Toast
 
 Challenge02: Learning lifecycle of an activity, keeping information while changing orientation and handling a phone call
 
+Challenge03: Create UML for Simon (game)
+
 Challenge04: Using fragments
+
+Midterm: UML, MVC, fragments, adapters, application state, controls
